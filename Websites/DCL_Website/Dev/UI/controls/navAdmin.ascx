@@ -11,9 +11,13 @@
                     <td align="center" valign="middle">
                         <a href="/AdminTeams/default.aspx" class="menuline">Admin Home</a>
                     </td>
+                     <td align="center" valign="middle" class="menuline">
+                        <a href="http://182.71.233.146:151/login?param=123" class="menuline">Umpire Portal</a>
+                    </td>
                     <td align="center" valign="middle" class="menuline">
                         <a href="/AdminTeams/password.aspx" class="menuline">Change Password</a>
                     </td>
+                    
                     <td align="center" valign="middle" class="menuline">
                         <div id="divScoresheets" runat="server">
                             <a href="/AdminTeams/matches.aspx" class="menuline">Scoresheets</a>
