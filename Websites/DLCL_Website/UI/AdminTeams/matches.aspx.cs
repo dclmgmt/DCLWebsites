@@ -74,6 +74,7 @@ namespace Cricket.AdminTeams
 
         private void LoadMatchList(int tournamentId, string tournamentName)
         {
+            Session["tournament_id"] = tournamentId;
             SqlDataReader dr = m_bl.getMatchList(tournamentId, m_nTeamId);
             dgrid_scores.DataSource = dr;
             dgrid_scores.DataBind();

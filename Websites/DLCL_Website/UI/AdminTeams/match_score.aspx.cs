@@ -55,14 +55,7 @@ namespace Cricket.AdminTeams
 			string strTeam1Name = "", strTeam2Name = "";
 		
 
-			//leather ball more than one match format
-			txtTotalMatchOvers.Text = m_nTournamentMatchOvers.ToString();
-			SqlDataReader drt = m_bl.getTournamentData(tournamentId);
-			if (drt.Read())
-			{
-				txtTotalMatchOvers.Text = drt["overs"].ToString();
-			}
-			drt.Close();
+			
 			SqlDataReader dr;
 			if (IsSysAdmin() || Request.QueryString["sysadmin"] == "1")
 				txtTotalMatchOvers.Enabled = true;
@@ -94,7 +87,14 @@ namespace Cricket.AdminTeams
 
             if (tournamentId == 0)
                 throw new Exception("Invalid match id specified!");
-
+			//leather ball more than one match format
+			txtTotalMatchOvers.Text = m_nTournamentMatchOvers.ToString();
+			SqlDataReader drt = m_bl.getTournamentData(tournamentId);
+			if (drt.Read())
+			{
+				txtTotalMatchOvers.Text = drt["overs"].ToString();
+			}
+			drt.Close();
 			int nTeam1Inning = 0;
 			int nTeam2Inning = 0;
 			dr = m_bl.getMatchStats(matchId, nTeam1Id);
