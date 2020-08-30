@@ -28,7 +28,7 @@ namespace Cricket.AdminTeams
                 getChaukaLoginData();
             }
             if (IsSysAdmin())
-                Server.Transfer("/Admin/default.aspx");
+                Server.Transfer("~/Admin/default.aspx");
 
 		}
         private void getChaukaLoginData()

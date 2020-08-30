@@ -26,7 +26,7 @@ namespace Cricket.Admin
 
 			//sysadmin security
             if (!IsSysAdmin())
-                Response.Redirect("/AdminTeams/default.aspx");
+                Response.Redirect("~/Admin/default.aspx");
 
 		}
 
