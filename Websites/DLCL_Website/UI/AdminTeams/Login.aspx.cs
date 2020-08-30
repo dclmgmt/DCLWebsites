@@ -94,6 +94,7 @@ namespace Cricket.AdminTeams
 
                 // get current tournament for the team which is used to display the current tournament matches for updates
                 int updateDaysAfterEndDate = toInt(ConfigurationManager.AppSettings["CurrentTournamentEndMatchUpdateDays"]);
+                Session["updateDaysAfterEndDate"] = updateDaysAfterEndDate;
                 dr = m_bl.getTournamentCurrent(nTeamId, updateDaysAfterEndDate);
                 if (dr.Read())
                 {

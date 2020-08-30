@@ -53,9 +53,17 @@ namespace Cricket.AdminTeams
 			int	nTeam2Id = 0;
 			int nWinningTeamId = 0;
 			string strTeam1Name = "", strTeam2Name = "";
-			SqlDataReader dr;
+		
 
+			//leather ball more than one match format
 			txtTotalMatchOvers.Text = m_nTournamentMatchOvers.ToString();
+			SqlDataReader drt = m_bl.getTournamentData(tournamentId);
+			if (drt.Read())
+			{
+				txtTotalMatchOvers.Text = drt["overs"].ToString();
+			}
+			drt.Close();
+			SqlDataReader dr;
 			if (IsSysAdmin() || Request.QueryString["sysadmin"] == "1")
 				txtTotalMatchOvers.Enabled = true;
 			else
