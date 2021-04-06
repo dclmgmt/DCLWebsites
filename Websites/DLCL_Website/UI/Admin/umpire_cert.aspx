@@ -56,7 +56,7 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                         <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtName" runat="server" Text='<%# Eval("Name") %>' Width="280"></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" Text='<%# Eval("Name") %>' Width="180"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="TeamName" ItemStyle-Width="300">
@@ -64,7 +64,7 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                         <asp:Label ID="lblTeamName" runat="server" Text='<%# Eval("TeamName") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtTeamName" runat="server" Text='<%# Eval("TeamName") %>' Width="280"></asp:TextBox>
+                        <asp:TextBox ID="txtTeamName" runat="server" Text='<%# Eval("TeamName") %>' Width="180"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="CertifiedBy" ItemStyle-Width="300">
@@ -72,7 +72,7 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                         <asp:Label ID="lblCertifiedBy" runat="server" Text='<%# Eval("CertifiedBy") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtCertifiedBy" runat="server" Text='<%# Eval("CertifiedBy") %>' Width="280"></asp:TextBox>
+                        <asp:TextBox ID="txtCertifiedBy" runat="server" Text='<%# Eval("CertifiedBy") %>' Width="180"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="PlayerId" ItemStyle-Width="300">
@@ -80,7 +80,23 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                         <asp:Label ID="lblPlayerId" runat="server" Text='<%# Eval("PlayerID") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtPlayerId" runat="server" Text='<%# Eval("PlayerID") %>' Width="280"></asp:TextBox>
+                        <asp:TextBox ID="txtPlayerId" runat="server" Text='<%# Eval("PlayerID") %>' Width="180"></asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Certified Date" ItemStyle-Width="300">
+                    <ItemTemplate>
+                        <asp:Label ID="lblCertifiedDate" runat="server" Text='<%# Eval("CertifiedDate", "{0:MM/dd/yyyy}") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtCertifiedDate" runat="server" Text='<%# Eval("CertifiedDate", "{0:MM/dd/yyyy}") %>' Width="100"></asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Level" ItemStyle-Width="300">
+                    <ItemTemplate>
+                        <asp:Label ID="lblLevel" runat="server" Text='<%# Eval("Level") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtLevel" runat="server" Text='<%# Eval("Level") %>' Width="80"></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
@@ -104,6 +120,15 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                 <td style="width: 150px">
                     PlayerID:<br />
                     <asp:TextBox ID="txtPlayerID" runat="server" Width="140"  />
+                </td>
+                
+                <td style="width: 150px">
+                    Certified Date:<br />
+                    <asp:TextBox ID="txtCertifiedDate" runat="server" Width="140"  />
+                </td>
+                <td style="width: 150px">
+                    Level:<br />
+                    <asp:TextBox ID="txtLevel" runat="server" Width="140"  />
                 </td>
                 <td style="width: 150px">
                     <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="Insert" />

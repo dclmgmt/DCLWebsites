@@ -629,13 +629,15 @@ namespace Cricket.BAL
         }
 
 
-        public void insertCertData(string Name, string CertifiedBy, string TeamName, string PlayerID)
+        public void insertCertData(string Name, string CertifiedBy, string TeamName, string PlayerID, DateTime CertifiedDate, string Level)
         {
             InsertCertData cmd = new InsertCertData(m_conn);
             cmd.setParm("Name", Name);
             cmd.setParm("CertifiedBy", CertifiedBy);
             cmd.setParm("TeamName", TeamName);
             cmd.setParm("PlayerID", PlayerID);
+            cmd.setParm("CertifiedDate", CertifiedDate);
+            cmd.setParm("Level", Level);
             cmd.executeNonQuery();
         }
 
@@ -1157,7 +1159,7 @@ namespace Cricket.BAL
             }
 
         }
-        public void setUmpireCert(int id, string Name, string CertifiedBy, string TeamName, string PlayerID)
+        public void setUmpireCert(int id, string Name, string CertifiedBy, string TeamName, string PlayerID, DateTime CertifiedDate, string Level)
         {
             SetUmpireCert cmd = new SetUmpireCert(m_conn);
             cmd.setParm("id", id);
@@ -1165,6 +1167,8 @@ namespace Cricket.BAL
             cmd.setParm("CertifiedBy", CertifiedBy);
             cmd.setParm("TeamName", TeamName);
             cmd.setParm("PlayerID", PlayerID);
+            cmd.setParm("CertifiedDate", CertifiedDate);
+            cmd.setParm("Level", Level);
             cmd.executeNonQuery();
         }
 

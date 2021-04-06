@@ -348,13 +348,15 @@ namespace Cricket.DAL.Matches
     {
         public SetUmpireCert(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "update UmpireCert set Name = @Name, CertifiedBy = @CertifiedBy , TeamName = @TeamName , PlayerID = @PlayerID " +
+            m_cmd.CommandText = "update UmpireCert set Name = @Name, CertifiedBy = @CertifiedBy , TeamName = @TeamName , PlayerID = @PlayerID  , CertifiedDate = @CertifiedDate  , Level = @Level " +
                                 "where id = @id";
             addParmInt("id");
             addParmText("Name");
             addParmText("CertifiedBy");
             addParmText("TeamName");
             addParmText("PlayerID");
+            addParmText("CertifiedDate");
+            addParmText("Level");
         }
     }
 

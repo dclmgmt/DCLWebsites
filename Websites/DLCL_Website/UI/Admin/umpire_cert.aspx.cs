@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Text;
 using Cricket;
 using Cricket.controls;
@@ -45,6 +46,8 @@ namespace Cricket.Admin
             txtCertifiedBy.Text = String.Empty;
             txtTeamName.Text = String.Empty;
             txtPlayerID.Text = String.Empty;
+            txtCertifiedDate.Text = String.Empty;
+            txtLevel.Text = String.Empty;
 
 
         }
@@ -54,9 +57,15 @@ namespace Cricket.Admin
             string certifiedBy = txtCertifiedBy.Text;
             string teamName = txtTeamName.Text;
             string playerID = txtPlayerID.Text;
+            string certifiedDate = txtCertifiedDate.Text;
+            string level = txtLevel.Text;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime certifiedDateTime; // 1/1/0001 12:00:00 AM  
+            bool isSuccess1 = DateTime.TryParseExact(certifiedDate, "MM/dd/yyyy", provider, DateTimeStyles.None, out certifiedDateTime);
+
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(certifiedBy))
             {
-                m_bl.insertCertData(name, certifiedBy, teamName, playerID);
+                m_bl.insertCertData(name, certifiedBy, teamName, playerID, certifiedDateTime, level);
                 this.LoadData();
             }
         }
@@ -73,8 +82,12 @@ namespace Cricket.Admin
             string certifiedBy = (row.FindControl("txtCertifiedBy") as TextBox).Text;
             string teamName = (row.FindControl("txtTeamName") as TextBox).Text;
             string playerID = (row.FindControl("txtPlayerID") as TextBox).Text;
-
-            m_bl.setUmpireCert(id, name, certifiedBy, teamName, playerID);
+            string certifiedDate = (row.FindControl("txtCertifiedDate") as TextBox).Text;
+            string level = (row.FindControl("txtLevel") as TextBox).Text;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            DateTime certifiedDateTime; // 1/1/0001 12:00:00 AM  
+            bool isSuccess1 = DateTime.TryParseExact(certifiedDate, "MM/dd/yyyy", provider, DateTimeStyles.None, out certifiedDateTime);
+            m_bl.setUmpireCert(id, name, certifiedBy, teamName, playerID, certifiedDateTime, level);
             CertGridView.EditIndex = -1;
            LoadData();
         }
@@ -91,10 +104,10 @@ namespace Cricket.Admin
         }
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != CertGridView.EditIndex)
-            {
-                (e.Row.Cells[5].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
-            }
+            //if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != CertGridView.EditIndex)
+            //{
+            //    (e.Row.Cells[5].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
+            //}
         }
         protected void OnPaging(object sender, GridViewPageEventArgs e)
         {
