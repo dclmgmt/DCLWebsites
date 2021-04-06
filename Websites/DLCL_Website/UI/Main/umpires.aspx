@@ -19,9 +19,11 @@
                       Width="100%"
                       ShowHeader="true">
             <Columns>
-                <asp:BoundField DataField="Name" ItemStyle-Width="30%" HeaderText="Umpire Name" />
-                <asp:BoundField DataField="TeamName" ItemStyle-Width="30%" HeaderText="Team Name" />
-                <asp:BoundField DataField="CertifiedBy" ItemStyle-Width="30%" HeaderText="Certified By" />
+                <asp:BoundField DataField="Name" ItemStyle-Width="20%" HeaderText="Umpire Name" />
+                <asp:BoundField DataField="TeamName" ItemStyle-Width="20%" HeaderText="Team Name" />
+                <asp:BoundField DataField="CertifiedBy" ItemStyle-Width="20%" HeaderText="Certified By" />
+                <asp:BoundField DataField="CertifiedDate" ItemStyle-Width="20%" HeaderText="Certified Date" dataformatstring="{0:MM/dd/yyyy}" />
+                <asp:BoundField DataField="Level" ItemStyle-Width="20%" HeaderText="Level" />
             </Columns>
         </asp:GridView>
 
