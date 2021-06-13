@@ -110,6 +110,10 @@ namespace Cricket.Teams
             string name = string.Empty;
 
             psList.Sort(delegate(PlayerStats x, PlayerStats y) { if (x == y) return 0; else  return x.runs > y.runs ? -1 : 1; });
+            if (!psList.Any())
+            {
+                return;
+            }
             ps1 = psList.First();
             name = ps1.runs > 0 ? ps1.name : string.Empty;
             dt.Rows.Add("Most Runs", name, ps1.runs);
