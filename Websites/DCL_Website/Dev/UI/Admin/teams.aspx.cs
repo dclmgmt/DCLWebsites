@@ -59,6 +59,10 @@ namespace Cricket.Admin
                 txtEmail.Text = string.Empty;
                 txtGroundName.Text = string.Empty;
                 chkActive.Checked = false;
+                chkDepositPaid.Checked = false;
+                txtDepositAmount.Text = string.Empty;
+                txtDepositDate.Text = DateTime.Now.ToShortDateString();
+                txtDepositPaidBy.Text = string.Empty;
                 btnAddTeam.Enabled = false;
 
             }
@@ -75,6 +79,10 @@ namespace Cricket.Admin
                     txtEmail.Text = dr["contact_email"] as string;
                     txtGroundName.Text = dr["ground_name"] as string;
                     chkActive.Checked = toInt(dr["active_sw"]) == 1;
+                    chkDepositPaid.Checked = toInt(dr["deposit_paid"]) == 1;
+                    txtDepositPaidBy.Text = dr["deposit_paid_by"] as string;
+                    txtDepositAmount.Text = dr["deposit_amount"].ToString();
+                    txtDepositDate.Text = string.IsNullOrWhiteSpace(dr["deposit_date"].ToString()) ? string.Empty: DateTime.Parse(dr["deposit_date"].ToString()).ToShortDateString();
                 }
                 dr.Close();
 
@@ -105,18 +113,27 @@ namespace Cricket.Admin
             if (Page.IsValid)
             {
                 int activeSw = 0;
+                int depositPaid = 0;
+                DateTime dtDepositDate;
+                decimal decimalAmountPaid;
                 if (chkActive.Checked)
                     activeSw = 1;
-
+                if (chkDepositPaid.Checked)
+                    depositPaid = 1;
                 int teamId = toInt(lblTeamId.Text);
+                
+                DateTime.TryParse(txtDepositDate.Text, out  dtDepositDate);
+                Decimal.TryParse(txtDepositAmount.Text, out decimalAmountPaid);
                 if (teamId > 0)
                 {
-                    m_bl.setTeamData(teamId, txtName.Text, txtDesc.Text, txtContact.Text, txtEmail.Text, txtGroundName.Text, activeSw);
+                    m_bl.setTeamData(teamId, txtName.Text, txtDesc.Text, txtContact.Text, txtEmail.Text, txtGroundName.Text, activeSw
+                    ,depositPaid, dtDepositDate, txtDepositPaidBy.Text, decimalAmountPaid);
                 }
                 else
                 {
                     string userName = txtName.Text.Replace(" ", "");
-                    m_bl.createTeamData(txtName.Text, userName, txtDesc.Text, txtContact.Text, txtEmail.Text, txtGroundName.Text, activeSw);
+                    m_bl.createTeamData(txtName.Text, userName, txtDesc.Text, txtContact.Text, txtEmail.Text, txtGroundName.Text, activeSw
+                        , depositPaid, dtDepositDate, txtDepositPaidBy.Text, decimalAmountPaid);
 
                     StringBuilder sb = new StringBuilder();
                     sb.AppendLine("Please note that an account has been created for your team on the DCL website. You are required to do the following: ");

@@ -66,6 +66,12 @@ namespace Cricket.DAL
 			m_cmd.Parameters.Add(strName, SqlDbType.Int);
 		}
 
+	    public void addParmDecimal(string strName)
+	    {
+	        strName = "@" + strName;
+	        m_cmd.Parameters.Add(strName, SqlDbType.Decimal);
+	    }
+
         public void addParmGuid(string strID)
         {
             strID = "@" + strID;

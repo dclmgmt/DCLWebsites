@@ -340,7 +340,8 @@ namespace Cricket.BAL
 			return cmd.executeReader();
 		}
 
-        public void setTeamData(int nTeamId, string strName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw)
+        public void setTeamData(int nTeamId, string strName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw
+        , int nDepositPaid, DateTime dateDeposit, string strDepositPaidBy, decimal dDepositAmount)
 		{
 			SetTeamData cmd = new SetTeamData(m_conn);
 			cmd.setParm("team_id", nTeamId);
@@ -350,7 +351,13 @@ namespace Cricket.BAL
             cmd.setParm("contact_email", emailAddress);
             cmd.setParm("ground_name", strGroundName);
 			cmd.setParm("active_sw", activeSw);
-			cmd.executeNonQuery();
+		    cmd.setParm("deposit_paid", nDepositPaid);
+		    cmd.setParm("deposit_date", dateDeposit);
+		    cmd.setParm("deposit_paid_by", strDepositPaidBy);
+		    cmd.setParm("deposit_amount", dDepositAmount);
+
+
+            cmd.executeNonQuery();
 
          }
 
@@ -367,8 +374,9 @@ namespace Cricket.BAL
 			return fFound;
 		}
 
-		public void createTeamData(string strName, string userName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw)
-		{
+		public void createTeamData(string strName, string userName, string strDesc, string strContactName, string emailAddress, string strGroundName, int activeSw
+		    , int nDepositPaid, DateTime dateDeposit, string strDepositPaidBy, decimal dDepositAmount)
+        {
 			int nTeamId = newTeamId();
 
             if (checkTeamName(strName))
@@ -386,6 +394,11 @@ namespace Cricket.BAL
 			cmd.setParm("phone_id", createPhone(""));
 			cmd.setParm("email_id", createEmail(""));
             cmd.setParm("active_sw", activeSw);
+		    cmd.setParm("deposit_paid", nDepositPaid);
+		    cmd.setParm("deposit_date", dateDeposit);
+		    cmd.setParm("deposit_paid_by", strDepositPaidBy);
+		    cmd.setParm("deposit_amount", dDepositAmount);
+
             cmd.executeNonQuery();
 
             int userId = 0;

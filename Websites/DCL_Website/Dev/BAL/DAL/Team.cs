@@ -32,11 +32,11 @@ namespace Cricket.DAL.Team
 	}
 
 	public class SetTeamData : Command
-	{
+	{ 
 		public SetTeamData(Connection conn) : base(conn)
 		{
-            m_cmd.CommandText = "update team set name = @name, description = @description, contact_name = @contact_name, contact_email = @contact_email," + 
-								"ground_name = @ground_name, active_sw = @active_sw where team_id = @team_id ";
+            m_cmd.CommandText = "update team set name = @name, description = @description, contact_name = @contact_name, contact_email = @contact_email," +
+                                "ground_name = @ground_name, active_sw = @active_sw , deposit_paid = @deposit_paid, deposit_date = @deposit_date, deposit_paid_by = @deposit_paid_by, deposit_amount =@deposit_amount where team_id = @team_id ";
 			addParmInt("team_id");
 			addParmText("name");
 			addParmTextLong("description");
@@ -44,7 +44,12 @@ namespace Cricket.DAL.Team
             addParmText("contact_email");
             addParmText("ground_name");
             addParmInt("active_sw");
-		}
+            addParmInt("deposit_paid");
+            addParmDate("deposit_date");
+            addParmText("deposit_paid_by");
+		    addParmDecimal("deposit_amount");
+
+        }
 	}
 
 
@@ -52,8 +57,8 @@ namespace Cricket.DAL.Team
 	{
 		public CreateTeamData(Connection conn) : base(conn)
 		{
-            m_cmd.CommandText = "insert into team (team_id, name, description, contact_name, contact_email, address_id, phone_id, email_id, ground_name, created_dt, active_sw) " +
-                                "values (@team_id, @name, @description, @contact_name, @contact_email, @address_id, @phone_id, @email_id, @ground_name, GetDate(), @active_sw) ";
+            m_cmd.CommandText = "insert into team (team_id, name, description, contact_name, contact_email, address_id, phone_id, email_id, ground_name, created_dt, active_sw, deposit_paid, deposit_date, deposit_paid_by, deposit_amount ) " +
+                                "values (@team_id, @name, @description, @contact_name, @contact_email, @address_id, @phone_id, @email_id, @ground_name, GetDate(), @active_sw, @deposit_paid, @deposit_date, @deposit_paid_by, @deposit_amount) ";
 			addParmInt("team_id");
 			addParmText("name");
 			addParmTextLong("description");
@@ -64,7 +69,11 @@ namespace Cricket.DAL.Team
 			addParmInt("email_id");
 			addParmText("ground_name");
             addParmInt("active_sw");
-		}
+		    addParmInt("deposit_paid");
+		    addParmDate("deposit_date");
+		    addParmText("deposit_paid_by");
+		    addParmDecimal("deposit_amount");
+        }
 	}
 
 	public class GetTeamListByTeamId : Command

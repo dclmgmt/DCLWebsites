@@ -113,6 +113,40 @@
                                 </tr>
                                 <tr>
                                     <td align="right" >
+                                        <span class="infoLabel">Deposit Paid?</span>
+                                    </td>
+                                    <td align="left">
+                                        <asp:CheckBox runat=server ID="chkDepositPaid" TabIndex="6"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <span class="infoLabel">Deposit Date:</span>
+                                    </td>
+                                    <td align="left">
+                                        <asp:TextBox ID="txtDepositDate" TabIndex="7" runat="server" Width="200px" MaxLength="50"></asp:TextBox>&nbsp;(MM/DD/YYYY)
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtDepositDate"
+                                                                    ErrorMessage="Required"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
+                                        <span class="infoLabel">Deposit Paid by:</span>
+                                    </td>
+                                    <td align="left">
+                                        <asp:TextBox ID="txtDepositPaidBy" TabIndex="9" runat="server" CssClass="infoData2" Width="300"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right"><span class="infoLabel">Deposit Amount: ($) </span>
+                                    </td>
+                                    <td>
+                                        <asp:textbox id="txtDepositAmount" tabIndex="10" runat="server" Width="15%"  MaxLength="4"
+                                                     TextMode="SingleLine"></asp:textbox>
+                                        <asp:RequiredFieldValidator id="RequiredFieldValidator5" runat="server" ErrorMessage="Required" ControlToValidate="txtDepositAmount"></asp:RequiredFieldValidator></td>
+                                </tr>
+                                <tr>
+                                    <td align="right" >
                                         </td>
                                     <td align="left">
                                         <asp:Button ID="btnAddTeam" TabIndex="6" runat="server" CssClass="btnAdmin" Text="Submit"
