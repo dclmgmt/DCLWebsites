@@ -37,8 +37,40 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
 <div id="dvGrid" style="padding: 10px; width: 750px">
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
+        <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+            <tr>
+                <td style="width: 150px">
+                    Name:<br />
+                    <asp:TextBox ID="txtName" runat="server" Width="140" />
+                </td>
+                <td style="width: 150px">
+                    CertifiedBy:<br />
+                    <asp:TextBox ID="txtCertifiedBy" runat="server" Width="140"  />
+                </td>
+                <td style="width: 150px">
+                    TeamName:<br />
+                    <asp:TextBox ID="txtTeamName" runat="server" Width="140"  />
+                </td>
+                <td style="width: 150px">
+                    PlayerID:<br />
+                    <asp:TextBox ID="txtPlayerID" runat="server" Width="140"  />
+                </td>
+                
+                <td style="width: 150px">
+                    Certified Date:<br />
+                    <asp:TextBox ID="txtCertifiedDate" runat="server" Width="140"  />
+                </td>
+                <td style="width: 150px">
+                    Level:<br />
+                    <asp:TextBox ID="txtLevel" runat="server" Width="140"  />
+                </td>
+                <td style="width: 150px">
+                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="Insert" />
+                </td>
+            </tr>
+        </table>
         <asp:GridView ID="CertGridView" runat="server" AutoGenerateColumns="false" OnRowDataBound="OnRowDataBound"
-            DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" PageSize = "20" AllowPaging ="true" OnPageIndexChanging = "OnPaging"
+            DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" PageSize = "100" AllowPaging ="true" OnPageIndexChanging = "OnPaging"
             OnRowUpdating="OnRowUpdating" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."
                       CellPadding="4"
                       CssClass="rtTable"
@@ -103,38 +135,7 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                     ItemStyle-Width="150" />
             </Columns>
         </asp:GridView>
-        <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-            <tr>
-                <td style="width: 150px">
-                    Name:<br />
-                    <asp:TextBox ID="txtName" runat="server" Width="140" />
-                </td>
-                <td style="width: 150px">
-                    CertifiedBy:<br />
-                    <asp:TextBox ID="txtCertifiedBy" runat="server" Width="140"  />
-                </td>
-                <td style="width: 150px">
-                    TeamName:<br />
-                    <asp:TextBox ID="txtTeamName" runat="server" Width="140"  />
-                </td>
-                <td style="width: 150px">
-                    PlayerID:<br />
-                    <asp:TextBox ID="txtPlayerID" runat="server" Width="140"  />
-                </td>
-                
-                <td style="width: 150px">
-                    Certified Date:<br />
-                    <asp:TextBox ID="txtCertifiedDate" runat="server" Width="140"  />
-                </td>
-                <td style="width: 150px">
-                    Level:<br />
-                    <asp:TextBox ID="txtLevel" runat="server" Width="140"  />
-                </td>
-                <td style="width: 150px">
-                    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="Insert" />
-                </td>
-            </tr>
-        </table>
+      
     </ContentTemplate>
 </asp:UpdatePanel>
 </div>
