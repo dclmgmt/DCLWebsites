@@ -40,7 +40,7 @@ namespace Cricket.AdminTeams
 				ViewState["email_id"] = m_nEmailId;
 				ViewState["phone_id"] = m_nPhoneId;
 				ViewState["photo_url"] = m_strPhotoURL;
-			}
+            }
 			else
 			{
 				m_nPlayerId = (int) ViewState["player_id"];
@@ -71,7 +71,8 @@ namespace Cricket.AdminTeams
 					//txtComments.Text = dr["comments"].ToString();
 					txtEmail.Text = dr["address"].ToString();
 					txtPhone.Text = dr["number"].ToString();
-					m_strPhotoURL = dr["photo_url"].ToString();
+                    txtCricclubId.Text = dr["cricclub_id"].ToString();
+                    m_strPhotoURL = dr["photo_url"].ToString();
 					chkKeeper.Checked = toInt(dr["keeper_sw"]) > 0;
 					int nTypeCd = toInt(dr["type_cd"]);
 					
@@ -184,7 +185,7 @@ namespace Cricket.AdminTeams
                 }
 
                 m_bl.setPlayerData(fInsert, m_nTeamId, m_nPlayerId, txtFirstName.Text, txtLastName.Text, nAge, txtBattingStyle.Text, txtBowlingStyle.Text,
-                    txtBattingPos.Text, strDate, strEndDate, m_nEmailId, txtEmail.Text, m_nPhoneId, txtPhone.Text, strComments, strPhotoURL, fKeeperSw, nTypeCd);
+                    txtBattingPos.Text, strDate, strEndDate, m_nEmailId, txtEmail.Text, m_nPhoneId, txtPhone.Text, strComments, strPhotoURL, fKeeperSw, nTypeCd, txtCricclubId.Text);
 
                 Server.Transfer("players.aspx");
             }

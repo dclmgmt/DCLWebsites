@@ -102,7 +102,7 @@
 													<HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
 													<ItemStyle HorizontalAlign="Right" Width="8%" CssClass="rtCellData"></ItemStyle>
 												</asp:BoundColumn>
-												<asp:BoundColumn DataField="net_rr" HeaderText="Net RR" DataFormatString="{0:##0.00}">
+												<asp:BoundColumn DataField="net_rr" HeaderText="Net RR" DataFormatString="{0:##0.000}">
 													<HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
 													<ItemStyle HorizontalAlign="Right" Font-Bold="False" Width="8%" CssClass="rtCellData">
 													</ItemStyle>

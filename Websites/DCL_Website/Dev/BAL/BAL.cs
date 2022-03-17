@@ -644,7 +644,7 @@ namespace Cricket.BAL
 		}
 
 		public void setPlayerData(bool fInsert, int nTeamId, int nPlayerId, string strFirstName, string strLastName, int nAge, string strBattingStyle, string strBowlingStyle, string strBattingPos,
-								string strStartDate, string strEndDate, int nEmailId, string strEmail, int nPhoneId, string strPhone, string strComments, string strPhotoURL, bool fKeeperSw, int nTypeCd)
+								string strStartDate, string strEndDate, int nEmailId, string strEmail, int nPhoneId, string strPhone, string strComments, string strPhotoURL, bool fKeeperSw, int nTypeCd, string strCricclubId)
 		{
 			if (!fInsert)
 			{
@@ -668,7 +668,8 @@ namespace Cricket.BAL
 				cmd.setParm("email_id", nEmailId);
 				cmd.setParm("keeper_sw", fKeeperSw);
 				cmd.setParm("type_cd", nTypeCd);
-				cmd.executeNonQuery();
+			    cmd.setParm("cricclub_id", strCricclubId);
+                cmd.executeNonQuery();
 			
 			}
 			else
@@ -697,7 +698,8 @@ namespace Cricket.BAL
 					cmd.setParm("email_id", nEmailId);
 					cmd.setParm("keeper_sw", fKeeperSw);
 					cmd.setParm("type_cd", nTypeCd);
-					cmd.executeNonQuery();
+				    cmd.setParm("cricclub_id", strCricclubId);
+                    cmd.executeNonQuery();
 				}
 			}
 		}

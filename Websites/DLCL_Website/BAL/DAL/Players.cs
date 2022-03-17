@@ -126,7 +126,7 @@ namespace Cricket.DAL.Players
         public CreatePlayer(Connection conn) : base(conn)
         {
             m_cmd.CommandText = "insert into player (player_id, team_id, first_name, last_name, age, batting_style, bowling_style, batting_position, start_dt, end_dt, photo_url, comments, keeper_sw, type_cd, phone_id, email_id) " +
-                "values (@player_id, @team_id, @first_name, @last_name, @age, @batting_style, @bowling_style, @batting_position, @start_dt, @end_dt, @photo_url, @comments, @keeper_sw, @type_cd, @phone_id, @email_id) ";
+                "values (@player_id, @team_id, @first_name, @last_name, @age, @batting_style, @bowling_style, @batting_position, @start_dt, @end_dt, @photo_url, @comments, @keeper_sw, @type_cd, @phone_id, @email_id, cricclub_id) ";
             addParmInt("team_id");
             addParmInt("player_id");
             addParmText("first_name");
@@ -143,6 +143,7 @@ namespace Cricket.DAL.Players
             addParmInt("email_id");
             addParmInt("keeper_sw");
             addParmInt("type_cd");
+            addParmText("cricclub_id");
         }
     }
 
@@ -169,7 +170,7 @@ namespace Cricket.DAL.Players
             m_cmd.CommandText = "update player set first_name = @first_name, last_name = @last_name, age = @age, " +
                 "batting_style = @batting_style, bowling_style = @bowling_style, batting_position = @batting_position, " +
                 "start_dt = @start_dt, end_dt = @end_dt, photo_url = @photo_url, comments = @comments, keeper_sw = @keeper_sw, type_cd = @type_cd, " +
-                "phone_id = @phone_id, email_id = @email_id " +
+                "phone_id = @phone_id, email_id = @email_id , cricclub_id = @cricclub_id" +
                 "where team_id = @team_id and player_id = @player_id";
             addParmInt("team_id");
             addParmInt("player_id");
@@ -187,6 +188,7 @@ namespace Cricket.DAL.Players
             addParmInt("email_id");
             addParmInt("keeper_sw");
             addParmInt("type_cd");
+            addParmText("cricclub_id");
         }
     }
 

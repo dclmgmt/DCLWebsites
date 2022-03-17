@@ -71,7 +71,7 @@ namespace Cricket.Tournament
                 }
 
                 dt.Rows.Add(dr["team_id"], dr["group_id"], dr["group_name"], dr["name"], dr["played"], dr["won"], dr["lost"], dr["tie"], dr["for_runs"], toFloat(dr["for_overs"]).ToString("##0.0"), toFloat(dr["for_rr"]).ToString("##0.00"), dr["opp_runs"],
-                    toFloat(dr["opp_overs"]).ToString("##0.0"), toFloat(dr["opp_rr"]).ToString("##0.00"), toFloat(dr["net_rr"]).ToString("##0.00"), dr["points"]);
+                    toFloat(dr["opp_overs"]).ToString("##0.0"), toFloat(dr["opp_rr"]).ToString("##0.00"), toFloat(dr["net_rr"]).ToString("##0.000"), dr["points"]);
             }
 
             dgrid_teams.DataSource = dt;

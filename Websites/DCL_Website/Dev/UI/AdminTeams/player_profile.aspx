@@ -145,6 +145,14 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td align="right">
+                                        <span class="infoLabel">Cricclub Id:</span>
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="txtCricclubId" TabIndex="9" runat="server" Width="200px"  MaxLength="100"></asp:TextBox>
+                                   </td>
+                                </tr>
+                                <tr>
                                     <td align="right" valign="top">
                                         <span class="infoLabel">Select Photo:</span>
                                     </td>
