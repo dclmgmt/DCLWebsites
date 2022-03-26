@@ -144,7 +144,7 @@
                                                                         ErrorMessage="Not a valid Phone no" ControlToValidate="txtPhone"></asp:RegularExpressionValidator>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="display: none;">
                                     <td align="right">
                                         <span class="infoLabel">Cricclub Id:</span>
                                     </td>

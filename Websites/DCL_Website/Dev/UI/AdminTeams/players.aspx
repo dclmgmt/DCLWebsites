@@ -60,7 +60,7 @@
                                                 </asp:BoundColumn>
                                                 <asp:BoundColumn DataField="number" HeaderText="Phone">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>
-                                                    <ItemStyle HorizontalAlign="Left" Width="20%" CssClass="rtCellData"></ItemStyle>
+                                                    <ItemStyle HorizontalAlign="Left" Width="25%" CssClass="rtCellData"></ItemStyle>
                                                 </asp:BoundColumn>
                                                 <asp:BoundColumn DataField="keeper_sw" HeaderText="Keeper" Visible="false">
                                                     <HeaderStyle CssClass="rtColHeader2"></HeaderStyle>

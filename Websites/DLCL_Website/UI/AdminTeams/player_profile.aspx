@@ -124,7 +124,7 @@
                                         <asp:TextBox ID="txtPhone" TabIndex="9" runat="server" Width="200px" MaxLength="15"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="display: none;">
                                     <td align="right">
                                         <span class="infoLabel">Cricclub Id:</span>
                                     </td>

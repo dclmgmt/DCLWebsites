@@ -36,7 +36,7 @@ namespace Cricket.DAL.Players
         public GetActivePlayerList(Connection conn)
             : base(conn)
         {
-            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, address, number, keeper_sw, type_cd from player pl " +
+            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, e.address, number, keeper_sw, type_cd from player pl " +
                 "inner join email e on e.email_id = pl.email_id inner join phone p on p.phone_id = pl.phone_id " +
                 "where team_id = @team_id and (end_dt = '' or end_dt = NULL) order by type_cd desc, name ";
             addParmInt("team_id");
@@ -47,7 +47,7 @@ namespace Cricket.DAL.Players
         public GetPlayerList(Connection conn)
             : base(conn)
         {
-            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, address, number, keeper_sw, type_cd, end_dt from player pl " +
+            m_cmd.CommandText = "select player_id, name = first_name + ' ' + last_name, e.address, number, keeper_sw, type_cd, end_dt from player pl " +
                 "inner join email e on e.email_id = pl.email_id inner join phone p on p.phone_id = pl.phone_id " +
                 "where team_id = @team_id order by end_dt asc, type_cd desc, name ";
             addParmInt("team_id");
@@ -125,8 +125,8 @@ namespace Cricket.DAL.Players
     {
         public CreatePlayer(Connection conn) : base(conn)
         {
-            m_cmd.CommandText = "insert into player (player_id, team_id, first_name, last_name, age, batting_style, bowling_style, batting_position, start_dt, end_dt, photo_url, comments, keeper_sw, type_cd, phone_id, email_id) " +
-                "values (@player_id, @team_id, @first_name, @last_name, @age, @batting_style, @bowling_style, @batting_position, @start_dt, @end_dt, @photo_url, @comments, @keeper_sw, @type_cd, @phone_id, @email_id, cricclub_id) ";
+            m_cmd.CommandText = "insert into player (player_id, team_id, first_name, last_name, age, batting_style, bowling_style, batting_position, start_dt, end_dt, photo_url, comments, keeper_sw, type_cd, phone_id, email_id, cricclub_id) " +
+                "values (@player_id, @team_id, @first_name, @last_name, @age, @batting_style, @bowling_style, @batting_position, @start_dt, @end_dt, @photo_url, @comments, @keeper_sw, @type_cd, @phone_id, @email_id, @cricclub_id) ";
             addParmInt("team_id");
             addParmInt("player_id");
             addParmText("first_name");
@@ -170,7 +170,7 @@ namespace Cricket.DAL.Players
             m_cmd.CommandText = "update player set first_name = @first_name, last_name = @last_name, age = @age, " +
                 "batting_style = @batting_style, bowling_style = @bowling_style, batting_position = @batting_position, " +
                 "start_dt = @start_dt, end_dt = @end_dt, photo_url = @photo_url, comments = @comments, keeper_sw = @keeper_sw, type_cd = @type_cd, " +
-                "phone_id = @phone_id, email_id = @email_id , cricclub_id = @cricclub_id" +
+                "phone_id = @phone_id, email_id = @email_id , cricclub_id = @cricclub_id " +
                 "where team_id = @team_id and player_id = @player_id";
             addParmInt("team_id");
             addParmInt("player_id");
