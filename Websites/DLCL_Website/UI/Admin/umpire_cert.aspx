@@ -37,6 +37,11 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
 <div id="dvGrid" style="padding: 10px; width: 750px">
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <ContentTemplate>
+        <asp:TextBox ID="searchBox" runat="server"></asp:TextBox>
+        <asp:Button ID="searchButton" runat="server" Text="search" OnClick="searchButton_Click" />
+        <asp:Button ID="reset" runat="server" Text="reset" OnClick="resetSearchButton_Click" />
+        <br />
+        <br />
         <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
             <tr>
                 <td style="width: 150px">
@@ -69,6 +74,9 @@ CodeFileBaseClass="Cricket.PageBaseAdmin" %>
                 </td>
             </tr>
         </table>
+            
+       <br />
+        <br />
         <asp:GridView ID="CertGridView" runat="server" AutoGenerateColumns="false" OnRowDataBound="OnRowDataBound"
             DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" PageSize = "100" AllowPaging ="true" OnPageIndexChanging = "OnPaging"
             OnRowUpdating="OnRowUpdating" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."

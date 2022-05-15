@@ -41,14 +41,18 @@ namespace Cricket.Admin
             {
                 CertGridView.DataBind();
             }
-            dt.Clear();
+            //save the datatable into a viewstate for later use
+            ViewState["adminCertViewState"] = dt;
+            //dt.Clear();
+            searchBox.Text = String.Empty;
+            //dt.Clear();
             txtName.Text = String.Empty;
             txtCertifiedBy.Text = String.Empty;
             txtTeamName.Text = String.Empty;
             txtPlayerID.Text = String.Empty;
             txtCertifiedDate.Text = String.Empty;
             txtLevel.Text = String.Empty;
-
+           
 
         }
         protected void Insert(object sender, EventArgs e)
@@ -74,6 +78,56 @@ namespace Cricket.Admin
             CertGridView.EditIndex = e.NewEditIndex;
             this.LoadData();
         }
+
+        protected void searchButton_Click(object sender, EventArgs e)
+        {
+            string searchTerm = searchBox.Text.ToLower();
+
+            //check if the search input is at least 3 chars
+            if (searchTerm.Length >= 3)
+            {
+                //always check if the viewstate exists before using it
+                if (ViewState["adminCertViewState"] == null)
+                    return;
+
+                //cast the viewstate as a datatable
+                DataTable dt = ViewState["adminCertViewState"] as DataTable;
+
+                //make a clone of the datatable
+                DataTable dtNew = dt.Clone();
+
+                //search the datatable for the correct fields
+                foreach (DataRow row in dt.Rows)
+                {
+                    //add your own columns to be searched here
+                    if (row["Name"].ToString().ToLower().Contains(searchTerm) ||
+                        row["TeamName"].ToString().ToLower().Contains(searchTerm))
+                    {
+                        //when found copy the row to the cloned table
+                        dtNew.Rows.Add(row.ItemArray);
+                    }
+                }
+
+                //rebind the grid
+                CertGridView.DataSource = dtNew;
+                CertGridView.DataBind();
+            }
+        }
+
+        protected void resetSearchButton_Click(object sender, EventArgs e)
+        {
+            //always check if the viewstate exists before using it
+            if (ViewState["adminCertViewState"] == null)
+                return;
+
+            //cast the viewstate as a datatable
+            DataTable dt = ViewState["adminCertViewState"] as DataTable;
+
+            //rebind the grid
+            CertGridView.DataSource = dt;
+            CertGridView.DataBind();
+        }
+
         protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = CertGridView.Rows[e.RowIndex];
