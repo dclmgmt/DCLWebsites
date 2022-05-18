@@ -34,17 +34,29 @@ namespace Cricket.Admin
 
         protected void LoadData()
         {
+            var searchText = searchBox.Text.ToLower();
             //load the data from the database
-            var dt = m_bl.getCertList();
-            CertGridView.DataSource = dt;
-            if (dt.Rows.Count > 0)
+            if (ViewState["adminCertSearchViewState"] != null && searchText.Length > 3)
             {
+                DataTable dt = ViewState["adminCertSearchViewState"] as DataTable;
+                CertGridView.DataSource = dt;
                 CertGridView.DataBind();
             }
-            //save the datatable into a viewstate for later use
-            ViewState["adminCertViewState"] = dt;
+            else
+            {
+                var dt = m_bl.getCertList();
+                CertGridView.DataSource = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    CertGridView.DataBind();
+                }
+                //save the datatable into a viewstate for later use
+                ViewState["adminCertViewState"] = dt;
+                searchBox.Text = String.Empty;
+            }
+          
             //dt.Clear();
-            searchBox.Text = String.Empty;
+          
             //dt.Clear();
             txtName.Text = String.Empty;
             txtCertifiedBy.Text = String.Empty;
@@ -57,6 +69,8 @@ namespace Cricket.Admin
         }
         protected void Insert(object sender, EventArgs e)
         {
+            ViewState["adminCertSearchViewState"] = null;
+            searchBox.Text = string.Empty;
             string name = txtName.Text;
             string certifiedBy = txtCertifiedBy.Text;
             string teamName = txtTeamName.Text;
@@ -111,6 +125,8 @@ namespace Cricket.Admin
                 //rebind the grid
                 CertGridView.DataSource = dtNew;
                 CertGridView.DataBind();
+
+                ViewState["adminCertSearchViewState"] = dtNew;
             }
         }
 
@@ -126,6 +142,8 @@ namespace Cricket.Admin
             //rebind the grid
             CertGridView.DataSource = dt;
             CertGridView.DataBind();
+            ViewState["adminCertSearchViewState"] = null;
+            searchBox.Text = string.Empty;
         }
 
         protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -143,17 +161,24 @@ namespace Cricket.Admin
             bool isSuccess1 = DateTime.TryParseExact(certifiedDate, "MM/dd/yyyy", provider, DateTimeStyles.None, out certifiedDateTime);
             m_bl.setUmpireCert(id, name, certifiedBy, teamName, playerID, certifiedDateTime, level);
             CertGridView.EditIndex = -1;
-           LoadData();
+            searchBox.Text = string.Empty;
+            ViewState["adminCertSearchViewState"] = null;
+            LoadData();
         }
         protected void OnRowCancelingEdit(object sender, EventArgs e)
         {
             CertGridView.EditIndex = -1;
+            searchBox.Text = string.Empty;
+            ViewState["adminCertSearchViewState"] = null;
             LoadData();
+
         }
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int playerId = Convert.ToInt32(CertGridView.DataKeys[e.RowIndex].Values[0]);
             m_bl.deleteUmpireCert(playerId);
+            searchBox.Text = string.Empty;
+            ViewState["adminCertSearchViewState"] = null;
             LoadData();
         }
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
