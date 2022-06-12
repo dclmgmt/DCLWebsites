@@ -19,7 +19,7 @@
 
 
     <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-
+ 
         <table width="90" border="0" align="center" cellpadding="10" cellspacing="0" class="bodyoutline">
             <tr>
                 <td align="center" valign="top">
@@ -29,17 +29,16 @@
         </table>
 
         <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" class="bodyoutline">
-            <tr>
-                <td align="center" valign="top">
-                    <div class="jcarousel-wrapper">
+            <tr align="center" valign="top" width="600" >
+                <td align="center" valign="top" >
+                    <div class="jcarousel-wrapper" style="height: 300px">
                         <div class="jcarousel">
                             <ul>
-                                <li><img src="/Images/dclpics2017/DLCL30h.JPG" alt="" width="850px" height="475"></li>
-                                <li><img src="/Images/dclpics2017/Slide5.JPG" alt="" width="850px" height="475"></li>
-                                <li><img src="/Images/dclpics2017/Slide6.JPG" alt="" width="850px" height="475"></li>
-                                <li><img src="/Images/dclpics2017/Slide7.JPG" alt="" width="850px" height="475"></li>
-                                <li><img src="/Images/dclpics2017/Slide8.JPG" alt="" width="850px" height="475"></li>
-                                <li><img src="/Images/dclpics2017/Slide9.JPG" alt="" width="850px" height="475"></li>
+				<li><img src="http://dallascricket.net/Images/homepg-bnr/July4thIndependenceCup.jpg" alt=""  width="850px" height="300" ></li>
+                                <li><img src="http://dallascricket.net/Images/homepg-bnr/MemorialDay-T10-small.jpg" alt=""  width="850px" height="300" ></li> 
+                                <li><img src="http://dallascricket.net/Images/homepg-bnr/2019-springleague-0223-0602.jpg" alt=""  width="850px" height="300"  ></li>
+                                <li><img src="http://dallascricket.net/Images/homepg-bnr/MemorialDay-doublewkt-small.jpg" alt=""  width="850px" height="300" ></li> 
+                                <li><img src="http://dallascricket.net/Images/homepg-bnr/2019-rent-an-umpire.jpg" alt=""  width="850px" height="300" ></li>
                             </ul>
                         </div>
 
@@ -56,10 +55,10 @@
         <table align="center" width="900" height="225" border="0" cellpadding="0" cellspacing="10">
             <tr>
                 <td align="left" valign="top">
-                    <table width="100%" height="225" border="1" cellpadding="0" cellspacing="0">
+                    <table width="100%" height="225" border="0" cellpadding="0" cellspacing="0">
                         <tr align="left" valign="top" width="600">
                             <td>
-                                <a href="/Main/Announcements.aspx"><span class="title2">Announcements</span></a>
+                                <a href="/Main/Announcements.aspx"><h3>Announcements</h3></a>
                             </td>
                         </tr>
                         <tr>
@@ -73,11 +72,11 @@
                                                 <ItemStyle CssClass="gridHomeRow1"></ItemStyle>
                                                 <Columns>
                                                     <asp:BoundColumn DataField="created_dt" HeaderText="" DataFormatString="{0:MMM d, yyyy}">
-                                                        <ItemStyle HorizontalAlign="left" Width="20%" CssClass="gridHomeCellData">
+                                                        <ItemStyle HorizontalAlign="left" Width="20%" CssClass="gridHomeCellData txt-l">
                                                         </ItemStyle>
                                                     </asp:BoundColumn>
-                                                    <asp:HyperLinkColumn DataTextField="title" DataNavigateUrlField="ID" DataNavigateUrlFormatString="/Main/Announcements.aspx?AnnouncementID={0}">
-                                                        <ItemStyle HorizontalAlign="left" Width="80%" CssClass="gridHomeCellData">
+                                                    <asp:HyperLinkColumn DataTextField="title" DataNavigateUrlField="ID" DataNavigateUrlFormatString="/Main/Announcements.aspx?AnnouncementID={0}"> 
+                                                        <ItemStyle HorizontalAlign="left" Width="80%" CssClass="gridHomeCellData txt-l">
                                                         </ItemStyle>
                                                     </asp:HyperLinkColumn>
                                                     <asp:BoundColumn DataField="ID" HeaderText="" Visible="false">
@@ -96,18 +95,18 @@
                         </tr>
                     </table>
                 </td>
-                <td width="310" align="left" valign="top" bgcolor="#FFFFFF">
-                    <table width="100%" height="225" border="1" cellpadding="0" cellspacing="0">
+                <td width="310" align="left" valign="top" >
+                    <table width="100%" height="225" border="0" cellpadding="0" cellspacing="0" bgcolor="#e0f3fc">
                         <tr>
-                            <td align="center" valign="middle" class="">
-                                <a href="/Main/Tournaments.aspx"><span class="title2">Tournaments</span></a>
+                            <td  valign="middle" align="center">
+                                <a href="/Main/Tournaments.aspx"><h3>Tournaments</h3></a>
                             </td>
                         </tr>
                         <tr>
-                            <td valign="middle" align="center" class="">
-                                <table id="Table1" border="0" cellpadding="10" cellspacing="1" width="100%">
+                            <td>
+                                <table id="Table1" border="0" cellpadding="10" cellspacing="0" width="100%" bgcolor="#effaff">
                                     <tr>
-                                        <td class="" align="center">
+                                        <td >
                                             <asp:DataGrid ID="dgrid_tournaments" runat="server" CssClass="" AllowCustomPaging="false" AllowPaging="false" AllowSorting="false" EnableViewState="False" Width="100%" ShowFooter="False" ShowHeader="false" AutoGenerateColumns="False" CellPadding="0" CellSpacing="0"
                                                 GridLines="None" BorderStyle="None" onitemdatabound="dgrid_tournaments_ItemDataBound">
                                                 <AlternatingItemStyle CssClass="gridRow2"></AlternatingItemStyle>
@@ -118,7 +117,7 @@
                                                         <ItemStyle HorizontalAlign="Right" Width="0%" CssClass="rtCellDataRight"></ItemStyle>
                                                     </asp:BoundColumn>
                                                     <asp:HyperLinkColumn DataTextField="name" DataNavigateUrlField="tournament_id" DataNavigateUrlFormatString="/Tournament/default.aspx?TournamentID={0}">
-                                                        <ItemStyle HorizontalAlign="center" Width="100%" CssClass="gridCellData">
+                                                        <ItemStyle HorizontalAlign="left" Width="100%" CssClass="gridCellData txt-l">
                                                         </ItemStyle>
                                                     </asp:HyperLinkColumn>
                                                     <asp:BoundColumn DataField="current" HeaderText="" Visible="false">
