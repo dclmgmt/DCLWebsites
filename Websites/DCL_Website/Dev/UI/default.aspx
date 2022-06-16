@@ -34,12 +34,13 @@
                     <div class="jcarousel-wrapper" style="height: 300px">
                         <div class="jcarousel" style="height: 300px">
                             <ul>
-				<li><img src="http://dallascricket.net/Images/homepg-bnr/July4thIndependenceCup.jpg" alt=""  width="850px" height="300" ></li>
-                                <li><img src="http://dallascricket.net/Images/homepg-bnr/MemorialDay-T10-small.jpg" alt=""  width="850px" height="300" ></li> 
-                                <li><img src="http://dallascricket.net/Images/homepg-bnr/2019-springleague-0223-0602.jpg" alt=""  width="850px" height="300"  ></li>
-                                <li><img src="http://dallascricket.net/Images/homepg-bnr/MemorialDay-doublewkt-small.jpg" alt=""  width="850px" height="300" ></li> 
-                                <li><img src="http://dallascricket.net/Images/homepg-bnr/2019-rent-an-umpire.jpg" alt=""  width="850px" height="300" ></li>
-                            </ul>
+				                    <li><a href="https://www.nanbancapitalx.com/"><img src="/Images/sponsors/NanBanCapitalX.jpeg" alt="" width="850px" height="300"></a> </li>
+						    <li><a href="https://www.xforia.com/"><img src="/Images/sponsors/XforiaBanner.jpeg" alt="" width="850px" height="300"></a> </li>
+						    <li><a href="https://www.nanbancapitalx.com/"><img src="/Images/sponsors/NanBanCapitalX1.jpeg" alt="" width="850px" height="300"></a> </li>
+						    <li><a href="https://www.xforia.com/"><img src="/Images/sponsors/XforiaBanner1.jpeg" alt="" width="850px" height="300"></a> </li>
+                                                    <li><img src="/Images/sponsors/SlideChauka.JPG" alt="" width="850px" height="300" ></li>
+                            
+</ul>
                         </div>
 
                         <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
