@@ -32,7 +32,7 @@
             <tr align="center" valign="top" width="600" >
                 <td align="center" valign="top" >
                     <div class="jcarousel-wrapper" style="height: 300px">
-                        <div class="jcarousel">
+                        <div class="jcarousel" style="height: 300px">
                             <ul>
 				<li><img src="http://dallascricket.net/Images/homepg-bnr/July4thIndependenceCup.jpg" alt=""  width="850px" height="300" ></li>
                                 <li><img src="http://dallascricket.net/Images/homepg-bnr/MemorialDay-T10-small.jpg" alt=""  width="850px" height="300" ></li> 
